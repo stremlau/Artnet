@@ -26,8 +26,7 @@ THE SOFTWARE.
 #define ARTNET_H
 
 #include <Arduino.h>
-#include <Ethernet.h>
-#include <EthernetUdp.h>
+#include <WiFiUdp.h>
 
 // UDP specific
 #define ART_NET_PORT 6454
@@ -45,7 +44,7 @@ class Artnet
 public:
   Artnet();
 
-  void begin(byte mac[], byte ip[]);
+  void begin();
   uint16_t read();
   void printPacketHeader();
   void printPacketContent();
@@ -82,7 +81,7 @@ public:
   }
 
 private:
-  EthernetUDP Udp;
+  WiFiUDP Udp;
   
   uint8_t artnetPacket[MAX_BUFFER_ARTNET];
   uint16_t packetSize;

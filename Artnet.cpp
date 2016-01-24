@@ -26,9 +26,8 @@ THE SOFTWARE.
 
 Artnet::Artnet() {}
 
-void Artnet::begin(byte mac[], byte ip[])
+void Artnet::begin()
 {
-  Ethernet.begin(mac,ip);
   Udp.begin(ART_NET_PORT);
 }
 

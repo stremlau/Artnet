@@ -4,21 +4,28 @@ This example uses the read() function and the different getter functions to read
 This example may be copied under the terms of the MIT license, see the LICENSE file for details
 */
 
+#include <ESP8266WiFi.h>
 #include <Artnet.h>
-#include <Ethernet.h>
-#include <EthernetUdp.h>
 #include <SPI.h>
 
 Artnet artnet;
 
-// Change ip and mac address for your setup
-byte ip[] = {192, 168, 2, 2};
-byte mac[] = {0x04, 0xE9, 0xE5, 0x00, 0x69, 0xEC};
-
 void setup()
 {
   Serial.begin(115200);
-  artnet.begin(mac, ip);
+  WiFi.begin("ssid", "password");
+  Serial.println("");
+
+  // Wait for connection
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
+  
+  artnet.begin();
 }
 
 void loop()
