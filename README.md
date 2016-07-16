@@ -1,10 +1,10 @@
 # Artnet
 
-An Art-Net library for ESP8266
+An Art-Net library for ESP8266 with support for listening for polling + responding to polling
 
 ## Installation
 
-You can download the [master](https://github.com/stremlau/Artnet/archive/master.zip) and place the folder in your `~/Documents/Arduino/libraries` folder.
+You can download the [master](https://github.com/jakobbraun/Artnet/archive/master.zip) and place the folder in your `~/Documents/Arduino/libraries` folder.
 
 ## Examples
 
@@ -20,4 +20,4 @@ This is similar to ArtnetReceive but uses a callback to read the data.
 
 ## Acknowledgements
 
-This is a slightly changed Version of https://github.com/natcl/Artnet
+This is a merge of github.com/stremlau/Artnet and github.com/nickysemenza/Artnet
