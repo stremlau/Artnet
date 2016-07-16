@@ -21,16 +21,23 @@ void setup()
     delay(500);
     Serial.print(".");
   }
-
+  
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
   
   artnet.begin();
+  byte broadcast[] = {WiFi.localIP()[0],WiFi.localIP()[1],WiFi.localIP()[2],255};
+  artnet.setBroadcast(broadcast);
 }
 
 void loop()
 {
-  if (artnet.read() == ART_DMX)
+  uint16_t r = artnet.read();
+  if(r == ART_POLL)
+  {
+    Serial.println("POLL");
+  }
+  if (r == ART_DMX)
   {
     // print out our data
     Serial.print("universe number = ");

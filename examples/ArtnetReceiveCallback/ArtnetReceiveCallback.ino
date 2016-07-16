@@ -46,8 +46,12 @@ void setup()
   
   artnet.begin();
   
+  byte broadcast[] = {WiFi.localIP()[0],WiFi.localIP()[1],WiFi.localIP()[2],255};
+  artnet.setBroadcast(broadcast);
+  
   // this will be called for each packet received
   artnet.setArtDmxCallback(onDmxFrame);
+  
 }
 
 void loop()
